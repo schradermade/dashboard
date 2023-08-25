@@ -23,12 +23,23 @@ const NavButton = ({title, customFunc, icon, color, dotColor}) => (
 )
 
 const Navbar = () => {
-  const {activeMenu, setActiveMenu} = useStateContext();
+  const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick,screenSize, setScreenSize} = useStateContext();
 
-  function handleClick() {
 
-  }
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth)
+    window.addEventListener('resize', handleResize)
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, [])
 
+  useEffect(() => {
+if (screenSize <= 900) {
+  setActiveMenu(false)
+}  else {
+  setActiveMenu(true)
+}
+  }, [screenSize])
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
       <NavButton
@@ -40,23 +51,23 @@ const Navbar = () => {
       <div className="flex">
       <NavButton
         title="Cart" 
-        customFunc={() => handleClick('click')} 
+        customFunc={() => handleClick('cart')} 
         color="blue" 
         icon={<FiShoppingCart />} 
       />
-         <NavButton
+      <NavButton
         title="Chat" 
         dotColor="#03C9D7"
         customFunc={() => handleClick('chat')} 
         color="blue" 
         icon={<BsChatLeft />} 
       />
-               <NavButton
-        title="Notifications" 
+      <NavButton
+        title="Notifications"
         dotColor="#03C9D7"
-        customFunc={() => handleClick('notification')} 
+        customFunc={() => handleClick('notification')}
         color="blue" 
-        icon={<RiNotification3Line />} 
+        icon={<RiNotification3Line />}
       />
       <TooltipComponent content="Profile" position="BottomCenter">
         <div className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg" onClick={() => handleClick('userProfile')}>
@@ -73,6 +84,12 @@ const Navbar = () => {
         </div>
 
       </TooltipComponent>
+
+      {isClicked.cart && <Cart />}
+      {isClicked.chat && <Chat />}
+      {isClicked.notification && <Notification />}
+      {isClicked.userProfile && <UserProfile />}
+
       </div>
     </div>
   )
