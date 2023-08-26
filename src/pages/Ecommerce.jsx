@@ -58,7 +58,7 @@ const Ecommerce = () => {
       <div className="flex gap-10 flex-wrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780">
           <div className="flex justify-between">
-            <p classname="font-semibold text-xl">Revenue Updates</p>
+            <p className="font-semibold text-xl">Revenue Updates</p>
             <div className="flex items-center gap-4">
               <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
                 <span>
@@ -93,7 +93,7 @@ const Ecommerce = () => {
               <div className="mt-5">
                 <SparkLine
                   currentColor="blue"
-                  id="line-sparkline"
+                  id="line-sparkLine"
                   type="Line"
                   height="80px"
                   width="250px"
@@ -101,6 +101,17 @@ const Ecommerce = () => {
                   color="blue"
                 />
               </div>
+              <div className="mt-10">
+                <Button
+                  color="white"
+                  bgColor="blue"
+                  text="Download Report"
+                  borderRadius="10px"
+                />
+              </div>
+            </div>
+            <div>
+              <Stacked width="320px" height="360px" />
             </div>
           </div>
         </div>
