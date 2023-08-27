@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import {
   HtmlEditor,
@@ -11,16 +10,17 @@ import {
 } from '@syncfusion/ej2-react-richtexteditor';
 import { EditorData } from '../data/dummy';
 import { Header } from '../components';
-import { Html } from '@syncfusion/ej2/diagrams';
 
 const Editor = () => {
+  const height = window.innerHeight - 200;
+
   return (
-    <div className='m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl'>
+    <div className='md:m-5 md:p-5 bg-white rounded-md'>
       <Header
-        category='App'
-        title='Kanban'
+        // category='App'
+        title='Editor'
       />
-      <RichTextEditorComponent>
+      <RichTextEditorComponent height={height}>
         <EditorData />
         <Inject services={[HtmlEditor, Toolbar, Image, Link, QuickToolbar]} />
       </RichTextEditorComponent>

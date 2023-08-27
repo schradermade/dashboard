@@ -12,11 +12,12 @@ import { employeesData, employeesGrid } from '../data/dummy';
 import { Header } from '../components';
 
 const Employees = () => {
+  const height = window.innerHeight - 335;
   return (
-    <div className='m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl'>
+    <div className='md:m-5 md:p-5 bg-white rounded-md'>
       <Header
-        category='Page'
-        title='Orders'
+        // category='Page'
+        title='Employees'
       />
       <GridComponent
         dataSource={employeesData}
@@ -24,6 +25,8 @@ const Employees = () => {
         allowSorting
         toolbar={['Search']}
         width='auto'
+        height={height}
+        // frozenRows={0}
       >
         <ColumnsDirective>
           {employeesGrid.map((item, index) => (

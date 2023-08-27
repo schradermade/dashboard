@@ -8,10 +8,12 @@ const change = (args) => {
 };
 
 const ColorPicker = () => {
+  // const height = window.innerHeight;
+
   return (
-    <div className='m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl'>
+    <div className='md:m-5 md:p-5 bg-white rounded-md'>
       <Header
-        category='App'
+        // category='App'
         title='Color Picker'
       />
       <div className='text-center'>

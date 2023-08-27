@@ -18,8 +18,10 @@ import { Header } from '../components';
 // import { GridComponent } from '@syncfusion/ej2-react-grids';
 
 const Orders = () => {
+  const height = window.innerHeight - 315;
+
   return (
-    <div className='m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl'>
+    <div className='md:m-5 md:p-5 bg-white rounded-md'>
       <Header
         category='Page'
         title='Orders'
@@ -29,6 +31,7 @@ const Orders = () => {
         dataSource={ordersData}
         allowPaging
         allowSorting
+        height={height}
       >
         <ColumnsDirective>
           {ordersGrid.map((item, index) => (

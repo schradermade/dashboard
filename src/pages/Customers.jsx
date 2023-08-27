@@ -15,14 +15,16 @@ import { customersData, customersGrid } from '../data/dummy';
 import { Header } from '../components';
 
 const Customers = () => {
+  const height = window.innerHeight - 335;
+
   const toolbarOptions = ['Delete'];
   const selectionsettings = { persistSelection: true };
   const editing = { allowDeleting: true, allowEditing: true };
 
   return (
-    <div className='m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl'>
+    <div className='md:m-5 md:p-5 bg-white rounded-md'>
       <Header
-        category='Page'
+        // category='Page'
         title='Customers'
       />
 
@@ -35,6 +37,7 @@ const Customers = () => {
         toolbar={toolbarOptions}
         editSettings={editing}
         allowSorting
+        height={height}
       >
         <ColumnsDirective>
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
